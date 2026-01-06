@@ -1,103 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This is not a Wii</title>
-    <link rel="stylesheet" href="css/home.css"/>
-    
-    <!-- Redirección opcional -->
-    <script type="text/javascript">
-        // Solo redirige si no es Wii y no se usa el hash #override
-        if (!navigator.userAgent.match(/Wii/) && window.location.hash !== '#override') {
-            window.location.href = 'https://ujsndiego.neocities.org/Thisisnotawii';
-        }
-    </script>
-
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-
-        .menu {
-            padding-top: 220px;
-            font-size: 1.2rem;
-        }
-
-        .menu a {
-            color: #00ffea;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .menu a:hover {
-            color: #ffeb3b;
-        }
-
-        .marquee-container {
-            background-color: #000;
-            padding: 5px 0;
-        }
-
-        .marquee-container marquee {
-            color: yellow;
-            font-weight: bold;
-        }
-
-        #tick2 {
-            font-size: 24px;
-            margin-top: 20px;
-            display: block;
-        }
-    </style>
+	<link rel="stylesheet" href="css/home.css"/>
+	<script type="text/javascript">
+	      if (!navigator.userAgent.match(/Wii/) && window.location.hash !=='#override') {
+	        window.location = 'https://ujsndiego.neocities.org/Thisisnotawii';
+	      }
+	    </script>
 </head>
-<body>
-
-    <div class="menu">
-        <a href="games">GAMES</a> - 
-        <a href="videos">VIDEOS</a> - 
-        <a href="media">MEDIA</a> - 
-        <a href="utilities">UTILITIES</a> - 
-        <a href="others">OTHERS</a> - 
-        <a href="credits">CREDITS</a>
-    </div>
-
-    <div class="marquee-container">
-        <marquee>
-            WiiNet soft-launch is NOW! Report any broken things in the Discord server (go to wiinet.xyz on another device to get the Discord)
-        </marquee>
-    </div>
-
-    <span id="tick2"></span>
-
-    <script type="text/javascript">
-        function showClock() {
-            const tick = document.getElementById("tick2");
-            const now = new Date();
-
-            let hours = now.getHours();
-            let minutes = now.getMinutes();
-            let seconds = now.getSeconds();
-            let ampm = hours < 12 ? "AM" : "PM";
-
-            hours = hours % 12 || 12;
-            minutes = minutes.toString().padStart(2, "0");
-            seconds = seconds.toString().padStart(2, "0");
-
-            tick.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
-
-            setTimeout(showClock, 1000);
+<body style="text-align:center;">
+    <div style="padding-top:220px;">
+	<a href="games">GAMES</a> - <a href="videos">VIDEOS</a> - <a href="media">MEDIA</a> - <a href="utilities">UTILITIES</a> - <a href="others">OTHERS</a> - <a href="credits">CREDITS</a><br>
+    </div><br>
+	<div style="background-color:#000;">
+		<marquee style="color:yellow;">WiiNet soft-launch is NOW! report any broken things to me, soafen in the Discord server (go to wiinet.xyz on another device to get the Discord)</marquee>
+	</div><br>
+    <span id="tick2" style="font-size:24px;"></span>
+        <script type="text/javascript">
+       function show2(){
+            if (!document.all&&!document.getElementById)
+            return
+            thelement=document.getElementById? document.getElementById("tick2"): document.all.tick2
+           var Digital=new Date()
+            var hours=Digital.getHours()
+            var minutes=Digital.getMinutes()
+            var seconds=Digital.getSeconds()
+            var dn="PM"
+            if (hours<12)
+            dn="AM"
+            if (hours>12)
+            hours=hours-12
+            if (hours==0)
+            hours=12
+            if (minutes<=9)
+            minutes="0"+minutes
+            if (seconds<=9)
+            seconds="0"+seconds
+            var ctime=hours+":"+minutes+":"+seconds+" "+dn
+            thelement.innerHTML=""+ctime+""
+            setTimeout("show2()",1000)
         }
-
-        window.onload = showClock;
-    </script>
-
+        window.onload=show2;
+        </script>
 </body>
-</html>
+
 
